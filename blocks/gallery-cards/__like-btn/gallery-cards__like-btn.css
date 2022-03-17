@@ -1,0 +1,15 @@
+.gallery-cards__like-btn {
+  width: 22px;
+  height: 19px;
+  background: transparent;
+  cursor: pointer;
+  background-image: url(../../../images/like-btn.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: none;
+  transition: .5s linear;
+}
+
+.gallery-cards__like-btn:hover{
+  opacity: .5;
+}

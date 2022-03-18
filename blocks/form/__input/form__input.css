@@ -9,7 +9,8 @@
   display: block;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
-  padding: 0;
+  display: block;
+  padding: 0 0 13px;
 }
 
 .form__input::-webkit-input-placeholder {

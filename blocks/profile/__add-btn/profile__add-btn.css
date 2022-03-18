@@ -6,8 +6,27 @@
   cursor: pointer;
   margin-left: auto;
   transition: .5s linear;
+  background-image: url(../../../images/add-btn.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 22px 22px;
+  padding: 0;
 }
 
 .profile__add-btn:hover {
   opacity: .6;
+}
+
+@media screen and (max-width: 773px) {
+  .profile__add-btn{
+    width: 100%;
+    margin: 36px auto 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__add-btn{
+    background-size: 16px 16px;
+  }
 }

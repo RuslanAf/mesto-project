@@ -1,6 +1,12 @@
 .profile__name-description {
   font-weight: 400;
   font-size: 18px;
-  line-height: 1.2;
+  line-height: 1.21;
   margin: 16px 0 0;
+}
+
+@media screen and (max-width: 415px) {
+  .profile__name-description{
+    font-size: 14px;
+  }
 }

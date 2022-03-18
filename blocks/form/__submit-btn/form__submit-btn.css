@@ -10,4 +10,15 @@
   padding: 14px 0 18px;
   border-radius: 2px;
   border: none;
+  transition: .5s linear;
+}
+
+.form__submit-btn:hover {
+  opacity: .8;
+}
+
+@media screen and (max-width: 470px) {
+  .form__submit-btn{
+    font-size: 14px;
+  }
 }

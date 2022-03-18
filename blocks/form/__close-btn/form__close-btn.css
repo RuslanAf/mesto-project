@@ -1,4 +1,5 @@
 .form__close-btn {
+  padding: 0;
   width: 32px;
   height: 32px;
   background: transparent;
@@ -15,4 +16,19 @@
 
 .form__close-btn:hover {
   opacity: .6;
+}
+
+@media screen and (max-width: 560px) {
+  .form__close-btn{
+    top: -45px;
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .form__close-btn{
+    width: 20px;
+    height: 20px;
+    top: -35px;
+  }
 }

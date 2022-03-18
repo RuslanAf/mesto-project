@@ -1,17 +1,22 @@
 # Проект: Место
 
-### Обзор
+# Обзор
 
-* Figma
-* Картинки
+Cервис Mesto: интерактивная страница, куда можно добавлять фотографии, удалять их и ставить лайки. Работа выполнена в рамках обучения в Яндекс.Практикум
 
-**Figma**
+## Используемые технологии
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" width="140px" height="auto"> <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/CSS.3.svg" width="100px" height="auto">
 
-* [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+## Особенности работы:
+* Flexbox-верстка
+* Grid-layout
+* Методология БЭМ
+* CSS медиа-запросы (media queries)
+* Работа с макетом в Figma
+* Создание и стилизация форм
 
-**Картинки**
+## Дальнейшие доработки:
+* Добавить возможность открывать и закрывать попап при помощи Java Script
+* Реализовать функцию добавления фотографии на страницу
 
-Доставать картинки предстоит из Фигмы. Это расхожая практика, поэтому полезно потренироваться.
-Не забудьте [оптимизировать картинки](https://tinypng.com/), чтобы ваш сайт загружался быстрее.
-
-Удачи!
+### <a href="https://ruslanaf.github.io/mesto-project/" target="_blank">Страница работы на GitHub Pages</a>

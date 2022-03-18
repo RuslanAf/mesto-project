@@ -27,7 +27,7 @@
               </svg>
               </button>
           </div>
-          <p class="profile__name-description">Студент Яндекс-Парктикум</p>
+          <p class="profile__name-description">Студент Яндекс-Практикум</p>
         </div>
         <button class="profile__add-btn">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,6 +92,23 @@
       <footer class="footer">
         <p class="footer__copyright">&copy;&nbsp;2020 Mesto Russia</p>
       </footer>
+
+      <div class="popup">
+        <div class="popup__container">
+          <button class="form__close-btn"></button>
+          <form action="post" class="form">
+            <h3 class="form__title">Редактировать профиль</h3>
+            <fieldset class="form__user-info">
+              <label for="user-name"></label>
+              <input class="form__input" type="text" id="user-name" placeholder="Афиншаков Руслан">
+              <label for="user-description"></label>
+              <input class="form__input" type="text" id="user-description" placeholder="Студент Яндекс-Практикум">
+            </fieldset>
+            <button type="submit" class="form__submit-btn">Сохранить</button>
+          </form>
+        </div>
+      </div>
+
     </main>
   </div>
 </body>

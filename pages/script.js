@@ -1,6 +1,9 @@
 const profileEditBtn = document.querySelector('.profile__edit-btn');
-const profileEditPopup = document.querySelector('.popup');
+const addPlaceBtn = document.querySelector('.profile__add-btn')
+const profileEditPopup = document.querySelector('#popup-edit-profile');
+const addPlacePopup = document.querySelector('#popup-add-place');
 const profileCloseBtn = document.querySelector('.popup__close-btn');
+const addPlaceCloseBtn = document.querySelectorAll('.popup__close-btn');
 const formElement = document.querySelector('.popup__form');
 const initialCards = [
   {
@@ -34,7 +37,7 @@ let profileJob = document.querySelector('.profile__name-description');
 let nameInput = formElement.querySelector('#user-name');
 let jobInput = formElement.querySelector('#user-description');
 
-// Открытие попапа
+// Открытие попапа профиля
 function openProfilePopup() {
     profileEditPopup.classList.add('popup_opened')
     nameInput.value = profileName.textContent;
@@ -43,12 +46,28 @@ function openProfilePopup() {
 profileEditBtn.addEventListener('click', openProfilePopup);
 //---------------------------------------------
 
-//Закрытие попапа
+//Закрытие попапа профиля
 function closeProfilePopup() {
-    profileEditPopup.classList.remove('popup_opened')
+  profileEditPopup.classList.remove('popup_opened')
 };
 profileCloseBtn.addEventListener('click', closeProfilePopup);
 //------------------------------------------------
+
+// Открытие попапа формы добавления места
+function openAddPlacePopup() {
+  addPlacePopup.classList.add('popup_opened')
+};
+addPlaceBtn.addEventListener('click', openAddPlacePopup)
+//------------------------------------------------
+
+// Закрытие попапа формы добавления места
+function closeAddPlacePopup() {
+  addPlacePopup.classList.remove('popup_opened')
+};
+addPlaceCloseBtn.forEach(el => el.addEventListener('click', closeAddPlacePopup));
+
+
+
 
 //Сохранение информации о себе
 function formSubmitHandler (evt) {
@@ -68,7 +87,14 @@ formElement.addEventListener('submit', formSubmitHandler);
 
 
 
-let likes = document.querySelectorAll('li.gallery-cards__card div.gallery-cards__description gallery-cards__like-btn');
-document.querySelector('.gallery-cards__like-btn').addEventListener('click', function(evt) {
+let likes = document.querySelectorAll('.gallery-cards__like-btn');
+// document.querySelector('.gallery-cards__like-btn').addEventListener('click', function(evt) {
+// evt.target.classList.toggle('gallery-cards__like-btn_active');
+//});
+//const likeBtn = document.querySelector('.gallery-cards__like-btn');
+//function like () {
+  //likeBtn.classList.toggle('gallery-cards__like-btn_active')
+//}
+likes.forEach(el => el.addEventListener('click', function (evt) {
   evt.target.classList.toggle('gallery-cards__like-btn_active');
-});
+}))

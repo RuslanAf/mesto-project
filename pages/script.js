@@ -3,6 +3,7 @@ const profileEditBtn = document.querySelector('.profile__edit-btn');
 const addPlaceBtn = document.querySelector('.profile__add-btn')
 const profileEditPopup = document.querySelector('#popup-edit-profile');
 const addPlacePopup = document.querySelector('#popup-add-place');
+const imgPopup = document.querySelector('#popup-fulscreen-img');
 const profileCloseBtn = document.querySelector('.popup__close-btn_area_profile');
 const addPlaceCloseBtn = document.querySelector('.popup__close-btn_area_add-place');
 // const likeBtn = document.querySelector('.gallery-cards__like-btn');
@@ -101,12 +102,20 @@ function formSubmitHandler (evt) {
 formElement.addEventListener('submit', formSubmitHandler);
 //-------------------------------------------------------------
 
+const fullScreenImg = document.querySelector('.popup__fullscreen-img');
+const popupPlaceName = document.querySelector('.popup__place-name');
+// открытие фулскрин-картинки
+function openFullscreenImg (src, name) {
+  openPopup(imgPopup);
+  fullScreenImg.src = src;
+  fullScreenImg.alt = name;
+  popupPlaceName.textContent = name;
+}
+
 
 //Добавление начальных карточек
 const galleryCards = document.querySelector('.gallery-cards');
 const cardTemplate = document.querySelector('#gallery-cards__card-template').content;
-
-
 let cardImage = cardTemplate.querySelector('.gallery-cards__image');
 let cardTitle = cardTemplate.querySelector('.gallery-cards__title')
 
@@ -127,6 +136,10 @@ function createCard (name, link) {
     evt.target.classList.toggle('gallery-cards__like-btn_active');
   })
 
+  cardImage.addEventListener('click', function (evt) {
+    evt.target.openFullscreenImg (cardImage.src, cardImage.alt)
+  })
+
   return cardItem;
 }
 function addCard (card, container) {
@@ -138,6 +151,8 @@ initialCards.forEach(function(element) {
   addCard(card, galleryCards);
 
 })
+
+
 //=======================================================================
 
 

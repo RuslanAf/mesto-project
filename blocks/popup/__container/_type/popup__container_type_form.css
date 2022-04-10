@@ -1,0 +1,27 @@
+.popup__container_type_form {
+  max-width: 430px;
+  padding: 36px;
+  background-color: #fff;
+  margin-top: 195px;
+  border-radius: 9px;
+}
+
+
+@media screen and (max-width: 470px) {
+  .popup__container_type_form{
+    max-width: 360px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .popup__container_type_form{
+    max-width: 282px;
+    padding: 25px 22px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .popup__container_type_form{
+    margin-top: 123px;
+  }
+}

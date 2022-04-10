@@ -89,7 +89,7 @@
       </section>
 
       <div class="popup popup_type_edit-profile" id="popup-edit-profile">
-        <div class="popup__container">
+        <div class="popup__container popup__container_type_form">
           <button type="button" class="popup__close-btn popup__close-btn_area_profile"></button>
           <form action="post" class="popup__form popup__form_type_edit-profile form">
             <h3 class="form__title">Редактировать профиль</h3>
@@ -103,7 +103,7 @@
       </div>
 
       <div class="popup popup_type_add-place" id="popup-add-place">
-        <div class="popup__container">
+        <div class="popup__container popup__container_type_form">
           <button type="button" class="popup__close-btn popup__close-btn_area_add-place"></button>
           <form action="post" class="popup__form popup__form_type_add-place form">
             <h3 class="form__title">Новое место</h3>
@@ -116,13 +116,13 @@
         </div>
       </div>
 
-<div class="popup popup_opened popup_type_fulscreen-img" id="popup-fulscreen-img">
-  <div class="popup__container abc">
-    <button type="button" class="popup__close-btn popup__close-btn_area_fulscreen-img"></button>
-    <img src="" alt="" class="popup__fullscreen-img">
-    <p class="popup__place-name"></p>
-  </div>
-</div>
+      <div class="popup popup_type_fulscreen-img" id="popup-fulscreen-img">
+        <div class="popup__container popup__container_type_image">
+          <button type="button" class="popup__close-btn popup__close-btn_area_fulscreen-img"></button>
+          <img src="" alt="" class="popup__fullscreen-img">
+          <p class="popup__place-name"></p>
+        </div>
+      </div>
 
       <template id="gallery-cards__card-template">
         <li class="gallery-cards__card">

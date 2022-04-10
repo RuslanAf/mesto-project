@@ -1,0 +1,18 @@
+.popup__container_type_image {
+  max-width: 75vw;
+  max-height: 75vh;
+  margin-top: 90px;
+}
+
+@media screen and (max-width: 1024px) {
+  .popup__container_type_image{
+    max-width: 85vw;
+  }
+}
+
+@media screen and (max-width: 624px) {
+  .popup__container_type_image{
+    margin-top: 136px;
+  }
+}
+

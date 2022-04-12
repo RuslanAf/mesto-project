@@ -11,6 +11,8 @@
   padding: 0;
 }
 
-.gallery-cards__like-btn:hover{
-  opacity: .5;
+@media (hover: hover) {
+  .gallery-cards__like-btn:hover{
+    opacity: .5;
+  }
 }

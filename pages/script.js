@@ -1,14 +1,41 @@
-
+// Кнопки редактирования
 const profileEditBtn = document.querySelector('.profile__edit-btn');
 const addPlaceBtn = document.querySelector('.profile__add-btn')
-const profileEditPopup = document.querySelector('#popup-edit-profile');
-const addPlacePopup = document.querySelector('#popup-add-place');
-const imgPopup = document.querySelector('#popup-fulscreen-img');
+
+//Кнопки закрытия
 const profileCloseBtn = document.querySelector('.popup__close-btn_area_profile');
 const addPlaceCloseBtn = document.querySelector('.popup__close-btn_area_add-place');
 const imgCloseBtn = document.querySelector('.popup__close-btn_area_fulscreen-img');
-const formElement = document.querySelector('.popup__form');
 
+//Попапы
+const profileEditPopup = document.querySelector('#popup-edit-profile');
+const addPlacePopup = document.querySelector('#popup-add-place');
+const imgPopup = document.querySelector('#popup-fulscreen-img');
+
+//Формы
+const editProfileForm = document.querySelector('.popup__form_type_edit-profile');
+
+//Поля ввода
+const nameInput = editProfileForm.querySelector('#user-name');
+const jobInput = editProfileForm.querySelector('#user-description');
+const placeName = document.querySelector('#place-name');
+const placeUrl = document.querySelector('#place-url');
+
+//Информация о пользователе
+const profileName = document.querySelector('.profile__name');
+const profileJob = document.querySelector('.profile__name-description');
+
+//фото и подпись фуллскрин картинки
+const fullScreenImg = document.querySelector('.popup__fullscreen-img');
+const popupPlaceName = document.querySelector('.popup__place-name');
+
+//Элементы карточки
+const galleryCards = document.querySelector('.gallery-cards');
+const cardTemplate = document.querySelector('#gallery-cards__card-template').content;
+const cardImage = cardTemplate.querySelector('.gallery-cards__image');
+const cardTitle = cardTemplate.querySelector('.gallery-cards__title');
+
+//Массив для загрузки начальных карточек
 const initialCards = [
   {
     name: 'Архыз',
@@ -36,20 +63,16 @@ const initialCards = [
   }
   ];
 
-let profileName = document.querySelector('.profile__name');
-let profileJob = document.querySelector('.profile__name-description');
-let nameInput = formElement.querySelector('#user-name');
-let jobInput = formElement.querySelector('#user-description');
+//====================================== Функции ======================================//
 
-
-//открытие попапов
-function openPopup(element) {
-  element.classList.add('popup_opened');
+//Открытие попапов
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
 };
 
-//закрытие попапов
-function closePopup (element) {
-  element.classList.remove('popup_opened');
+//Закрытие попапов
+function closePopup (popup) {
+  popup.classList.remove('popup_opened');
 }
 
 // Открытие попапа профиля
@@ -58,44 +81,9 @@ function openProfilePopup() {
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
 };
-profileEditBtn.addEventListener('click', openProfilePopup);
-//---------------------------------------------
 
-//Закрытие попапа профиля
-function closeProfilePopup() {
-  closePopup(profileEditPopup);
-};
-profileCloseBtn.addEventListener('click', closeProfilePopup);
-//------------------------------------------------
-
-let placeName = document.querySelector('#place-name');
-let placeUrl = document.querySelector('#place-url');
-
-// Открытие попапа формы добавления места
-function openAddPlacePopup() {
-  openPopup(addPlacePopup)
-  placeName.value = '';
-  placeUrl.value = ''
-};
-addPlaceBtn.addEventListener('click', openAddPlacePopup)
-//------------------------------------------------
-
-// Закрытие попапа формы добавления места
-function closeAddPlacePopup() {
-  closePopup(addPlacePopup);
-};
-addPlaceCloseBtn.addEventListener('click', closeAddPlacePopup);
-//------------------------------------------------
-
-//Закрытие попапа с картинкой
-function closeImgPopup () {
-  closePopup(imgPopup);
-};
-imgCloseBtn.addEventListener('click', closeImgPopup)
-//-----------------------------------------------
-
-//Сохранение информации о себе
-function formSubmitHandler (evt) {
+//Сохранение информации о пользователе
+function editProfileInfo (evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
@@ -105,28 +93,54 @@ function formSubmitHandler (evt) {
   if (jobInput.value === '') {
     profileJob.textContent = 'Студент Яндекс-Практикум';
   }
-  closeProfilePopup()
+  closePopup(profileEditPopup);
 };
-formElement.addEventListener('submit', formSubmitHandler);
-//-------------------------------------------------------------
 
-//Добавление новго места
+// Открытие попапа формы добавления места
+function openAddPlacePopup() {
+  openPopup(addPlacePopup)
+  document.querySelector('.popup__form_type_add-place').reset();
+};
+
+//============================== Обработчики событий ==============================//
+
+//Открыть форму редактирования профиля нажатием на кнопку
+profileEditBtn.addEventListener('click', openProfilePopup);
+
+
+//Закрыть форму редактирования профиля нажав на крестик
+profileCloseBtn.addEventListener('click', function () {
+  closePopup(profileEditPopup);
+});
+
+//Открыть форму добавления места нажатием на кнопку
+addPlaceBtn.addEventListener('click', openAddPlacePopup)
+
+
+//Закрыть форму форму добавления места нажав на крестик
+addPlaceCloseBtn.addEventListener('click', function () {
+  closePopup(addPlacePopup);
+});
+
+// Закрыть попап картинки нажав на крестик
+imgCloseBtn.addEventListener('click', function () {
+  closePopup(imgPopup);
+})
+
+
+//Обновить информацию о пользователе данными из формы
+editProfileForm.addEventListener('submit', editProfileInfo);
+
+
+//Добавить новое место с данными из формы
 document.querySelector('.popup__form_type_add-place').addEventListener('submit', function (evt){
   evt.preventDefault();
   const card = createCard (placeName.value, placeUrl.value);
   addCard(card, galleryCards);
-  closeAddPlacePopup();
+  closePopup(addPlacePopup);
 });
-//-------------------------------------------------------------
 
-const fullScreenImg = document.querySelector('.popup__fullscreen-img');
-const popupPlaceName = document.querySelector('.popup__place-name');
-
-//Добавление начальных карточек
-const galleryCards = document.querySelector('.gallery-cards');
-const cardTemplate = document.querySelector('#gallery-cards__card-template').content;
-let cardImage = cardTemplate.querySelector('.gallery-cards__image');
-let cardTitle = cardTemplate.querySelector('.gallery-cards__title')
+//============= Функции для отрисовки/добавления карточек =============//
 
 //Создание шаблона карточки
 function createCard (name, link) {
